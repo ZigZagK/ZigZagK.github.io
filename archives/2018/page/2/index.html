@@ -627,9 +627,9 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
     tex2jax: {
-        showProcessingMessages: false,
-        messageStyle: "none",
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
@@ -644,7 +644,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
