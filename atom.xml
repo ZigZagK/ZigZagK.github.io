@@ -5,9 +5,9 @@
   <subtitle>Never give up fighting!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-07-25T06:52:26.287Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://zigzagk.github.io/"/>
+  <updated>2019-07-25T07:15:34.436Z</updated>
+  <id>https://zigzagk.github.io/</id>
   
   <author>
     <name>ZigZagK</name>
@@ -17,36 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello Hexo!</title>
-    <link href="http://yoursite.com/2019/07/25/Hello%20Hexo/"/>
-    <id>http://yoursite.com/2019/07/25/Hello Hexo/</id>
-    <published>2019-07-25T06:33:00.000Z</published>
-    <updated>2019-07-25T06:52:26.287Z</updated>
+    <title>Typecho新博客</title>
+    <link href="https://zigzagk.github.io/2019/07/25/Typechonewblog/"/>
+    <id>https://zigzagk.github.io/2019/07/25/Typechonewblog/</id>
+    <published>2019-07-25T07:14:00.000Z</published>
+    <updated>2019-07-25T07:15:34.436Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="哈哈">哈哈</h2><p><span class="math inline">\(dis\{i\}=dis\{ {sum_{i=1}^{n} }\}\)</span></p>]]></content>
+    <content type="html"><![CDATA[<p>博主的<a href="https://zigzagk.top" target="_blank" rel="noopener">Typecho博客</a>，欢迎来玩~~~</p><p>这个Hexo博客暂时还不知道拿来干啥……</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;哈哈&quot;&gt;哈哈&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&quot;math inline&quot;&gt;\(dis\{i\}=dis\{ {sum_{i=1}^{n} }\}\)&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;博主的&lt;a href=&quot;https://zigzagk.top&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Typecho博客&lt;/a&gt;，欢迎来玩~~~&lt;/p&gt;
+&lt;p&gt;这个Hexo博客暂时还不知道拿来干啥……&lt;/p&gt;
 
       
     
     </summary>
     
-      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="杂" scheme="https://zigzagk.github.io/categories/%E6%9D%82/"/>
     
     
-      <category term="自己的理解" scheme="http://yoursite.com/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+      <category term="自己的理解" scheme="https://zigzagk.github.io/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>ZJOI2018爆炸记</title>
-    <link href="http://yoursite.com/2018/04/26/ZJOI2018AFO/"/>
-    <id>http://yoursite.com/2018/04/26/ZJOI2018AFO/</id>
+    <link href="https://zigzagk.github.io/2018/04/26/ZJOI2018AFO/"/>
+    <id>https://zigzagk.github.io/2018/04/26/ZJOI2018AFO/</id>
     <published>2018-04-26T10:27:00.000Z</published>
     <updated>2019-07-25T05:49:02.527Z</updated>
     
@@ -58,19 +58,19 @@
     
     </summary>
     
-      <category term="杂" scheme="http://yoursite.com/categories/%E6%9D%82/"/>
+      <category term="杂" scheme="https://zigzagk.github.io/categories/%E6%9D%82/"/>
     
-      <category term="游记" scheme="http://yoursite.com/categories/%E6%9D%82/%E6%B8%B8%E8%AE%B0/"/>
+      <category term="游记" scheme="https://zigzagk.github.io/categories/%E6%9D%82/%E6%B8%B8%E8%AE%B0/"/>
     
     
-      <category term="自己的理解" scheme="http://yoursite.com/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+      <category term="自己的理解" scheme="https://zigzagk.github.io/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>[折半搜索]TopCoder【EllysRPS】题解</title>
-    <link href="http://yoursite.com/2018/04/24/TopCoderEllysRPS/"/>
-    <id>http://yoursite.com/2018/04/24/TopCoderEllysRPS/</id>
+    <link href="https://zigzagk.github.io/2018/04/24/TopCoderEllysRPS/"/>
+    <id>https://zigzagk.github.io/2018/04/24/TopCoderEllysRPS/</id>
     <published>2018-04-24T08:52:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -83,19 +83,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="TopCoder" scheme="http://yoursite.com/categories/Online-Judge/TopCoder/"/>
+      <category term="TopCoder" scheme="https://zigzagk.github.io/categories/Online-Judge/TopCoder/"/>
     
     
-      <category term="折半搜索" scheme="http://yoursite.com/tags/%E6%8A%98%E5%8D%8A%E6%90%9C%E7%B4%A2/"/>
+      <category term="折半搜索" scheme="https://zigzagk.github.io/tags/%E6%8A%98%E5%8D%8A%E6%90%9C%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>Hexo用Leancloud实现阅读量和评论数的统计与排序</title>
-    <link href="http://yoursite.com/2018/04/21/HexoLeancloud/"/>
-    <id>http://yoursite.com/2018/04/21/HexoLeancloud/</id>
+    <link href="https://zigzagk.github.io/2018/04/21/HexoLeancloud/"/>
+    <id>https://zigzagk.github.io/2018/04/21/HexoLeancloud/</id>
     <published>2018-04-21T08:44:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -107,19 +107,19 @@
     
     </summary>
     
-      <category term="杂" scheme="http://yoursite.com/categories/%E6%9D%82/"/>
+      <category term="杂" scheme="https://zigzagk.github.io/categories/%E6%9D%82/"/>
     
-      <category term="Hexo" scheme="http://yoursite.com/categories/%E6%9D%82/Hexo/"/>
+      <category term="Hexo" scheme="https://zigzagk.github.io/categories/%E6%9D%82/Hexo/"/>
     
     
-      <category term="自己的理解" scheme="http://yoursite.com/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+      <category term="自己的理解" scheme="https://zigzagk.github.io/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>[二分+上下界费用流]HDU5263【平衡大师】题解</title>
-    <link href="http://yoursite.com/2018/04/19/HDU5263/"/>
-    <id>http://yoursite.com/2018/04/19/HDU5263/</id>
+    <link href="https://zigzagk.github.io/2018/04/19/HDU5263/"/>
+    <id>https://zigzagk.github.io/2018/04/19/HDU5263/</id>
     <published>2018-04-19T08:03:00.000Z</published>
     <updated>2019-07-25T06:33:40.890Z</updated>
     
@@ -132,21 +132,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="HDU" scheme="http://yoursite.com/categories/Online-Judge/HDU/"/>
+      <category term="HDU" scheme="https://zigzagk.github.io/categories/Online-Judge/HDU/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="二分" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86/"/>
+      <category term="二分" scheme="https://zigzagk.github.io/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
   <entry>
     <title>[树形DP+two-pointer]2016计蒜之道初赛第六场【微软的员工福利】题解</title>
-    <link href="http://yoursite.com/2018/04/17/jisuanke11148/"/>
-    <id>http://yoursite.com/2018/04/17/jisuanke11148/</id>
+    <link href="https://zigzagk.github.io/2018/04/17/jisuanke11148/"/>
+    <id>https://zigzagk.github.io/2018/04/17/jisuanke11148/</id>
     <published>2018-04-17T13:00:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -159,21 +159,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="计蒜客" scheme="http://yoursite.com/categories/Online-Judge/%E8%AE%A1%E8%92%9C%E5%AE%A2/"/>
+      <category term="计蒜客" scheme="https://zigzagk.github.io/categories/Online-Judge/%E8%AE%A1%E8%92%9C%E5%AE%A2/"/>
     
     
-      <category term="树形DP" scheme="http://yoursite.com/tags/%E6%A0%91%E5%BD%A2DP/"/>
+      <category term="树形DP" scheme="https://zigzagk.github.io/tags/%E6%A0%91%E5%BD%A2DP/"/>
     
-      <category term="two-pointer" scheme="http://yoursite.com/tags/two-pointer/"/>
+      <category term="two-pointer" scheme="https://zigzagk.github.io/tags/two-pointer/"/>
     
   </entry>
   
   <entry>
     <title>[最小割]TopCoder【FoxAndCity】题解</title>
-    <link href="http://yoursite.com/2018/04/15/TopCoderFoxAndCity/"/>
-    <id>http://yoursite.com/2018/04/15/TopCoderFoxAndCity/</id>
+    <link href="https://zigzagk.github.io/2018/04/15/TopCoderFoxAndCity/"/>
+    <id>https://zigzagk.github.io/2018/04/15/TopCoderFoxAndCity/</id>
     <published>2018-04-15T12:50:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -186,21 +186,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="TopCoder" scheme="http://yoursite.com/categories/Online-Judge/TopCoder/"/>
+      <category term="TopCoder" scheme="https://zigzagk.github.io/categories/Online-Judge/TopCoder/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
   </entry>
   
   <entry>
     <title>[TC交题指南]TopCoder【RangeEncoding】题解</title>
-    <link href="http://yoursite.com/2018/04/15/TopCoderRangeEncoding/"/>
-    <id>http://yoursite.com/2018/04/15/TopCoderRangeEncoding/</id>
+    <link href="https://zigzagk.github.io/2018/04/15/TopCoderRangeEncoding/"/>
+    <id>https://zigzagk.github.io/2018/04/15/TopCoderRangeEncoding/</id>
     <published>2018-04-15T10:56:00.000Z</published>
-    <updated>2018-04-29T17:36:31.000Z</updated>
+    <updated>2019-07-25T07:13:41.070Z</updated>
     
     <content type="html"><![CDATA[<h2 id="题目概述">题目概述</h2><p>给出一个递增的数组，求 <span class="math inline">\(a_i=a_{i-1}+1\)</span> 的段数。</p><a id="more"></a><h2 id="解题报告">解题报告</h2><p>TC交题方法比较鬼畜，不是读入输出，而是让你实现一个指定名称的<code>class</code>，里面写一个指定名称参数返回值的函数，然后按照题目的意思根据传入的参数返回答案。注意提交程序的时候不要带上调试用的<code>int main</code>。</p><p>等等，说好的题解呢？<span class="math inline">\(ans=\sum_{i=2}^{n}[a_{i-1}+1&lt;a_i]\)</span> ，完事。</p><h2 id="示例程序">示例程序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RangeEncoding</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minRanges</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">1</span>;<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;a.size();i++) ans+=a[i<span class="number">-1</span>]+<span class="number">1</span>&lt;a[i];</span><br><span class="line"><span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -211,19 +211,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="TopCoder" scheme="http://yoursite.com/categories/Online-Judge/TopCoder/"/>
+      <category term="TopCoder" scheme="https://zigzagk.github.io/categories/Online-Judge/TopCoder/"/>
     
     
-      <category term="划水" scheme="http://yoursite.com/tags/%E5%88%92%E6%B0%B4/"/>
+      <category term="划水" scheme="https://zigzagk.github.io/tags/%E5%88%92%E6%B0%B4/"/>
     
   </entry>
   
   <entry>
     <title>[最小割]BZOJ3144(Hnoi2013)【切糕】题解</title>
-    <link href="http://yoursite.com/2018/04/11/BZOJ3144/"/>
-    <id>http://yoursite.com/2018/04/11/BZOJ3144/</id>
+    <link href="https://zigzagk.github.io/2018/04/11/BZOJ3144/"/>
+    <id>https://zigzagk.github.io/2018/04/11/BZOJ3144/</id>
     <published>2018-04-11T15:22:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -236,19 +236,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="BZOJ" scheme="http://yoursite.com/categories/Online-Judge/BZOJ/"/>
+      <category term="BZOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/BZOJ/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
   </entry>
   
   <entry>
     <title>[二分+后缀数组]BZOJ4310【跳蚤】题解</title>
-    <link href="http://yoursite.com/2018/04/11/BZOJ4310/"/>
-    <id>http://yoursite.com/2018/04/11/BZOJ4310/</id>
+    <link href="https://zigzagk.github.io/2018/04/11/BZOJ4310/"/>
+    <id>https://zigzagk.github.io/2018/04/11/BZOJ4310/</id>
     <published>2018-04-11T03:19:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -261,21 +261,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="BZOJ" scheme="http://yoursite.com/categories/Online-Judge/BZOJ/"/>
+      <category term="BZOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/BZOJ/"/>
     
     
-      <category term="二分" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86/"/>
+      <category term="二分" scheme="https://zigzagk.github.io/tags/%E4%BA%8C%E5%88%86/"/>
     
-      <category term="后缀数组" scheme="http://yoursite.com/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/"/>
+      <category term="后缀数组" scheme="https://zigzagk.github.io/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
   <entry>
     <title>[DP]UOJ300(CTSC2017)【吉夫特】题解</title>
-    <link href="http://yoursite.com/2018/04/07/UOJ300/"/>
-    <id>http://yoursite.com/2018/04/07/UOJ300/</id>
+    <link href="https://zigzagk.github.io/2018/04/07/UOJ300/"/>
+    <id>https://zigzagk.github.io/2018/04/07/UOJ300/</id>
     <published>2018-04-07T13:08:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -288,19 +288,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="UOJ" scheme="http://yoursite.com/categories/Online-Judge/UOJ/"/>
+      <category term="UOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/UOJ/"/>
     
     
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+      <category term="DP" scheme="https://zigzagk.github.io/tags/DP/"/>
     
   </entry>
   
   <entry>
     <title>[最大密度子图]2017计蒜之道初赛第三场【腾讯狼人杀】题解</title>
-    <link href="http://yoursite.com/2018/04/07/jisuanke15549/"/>
-    <id>http://yoursite.com/2018/04/07/jisuanke15549/</id>
+    <link href="https://zigzagk.github.io/2018/04/07/jisuanke15549/"/>
+    <id>https://zigzagk.github.io/2018/04/07/jisuanke15549/</id>
     <published>2018-04-07T07:59:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -313,21 +313,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="计蒜客" scheme="http://yoursite.com/categories/Online-Judge/%E8%AE%A1%E8%92%9C%E5%AE%A2/"/>
+      <category term="计蒜客" scheme="https://zigzagk.github.io/categories/Online-Judge/%E8%AE%A1%E8%92%9C%E5%AE%A2/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="分数规划" scheme="http://yoursite.com/tags/%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/"/>
+      <category term="分数规划" scheme="https://zigzagk.github.io/tags/%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>[决策单调性]BZOJ2369【区间】题解</title>
-    <link href="http://yoursite.com/2018/04/02/BZOJ2369/"/>
-    <id>http://yoursite.com/2018/04/02/BZOJ2369/</id>
+    <link href="https://zigzagk.github.io/2018/04/02/BZOJ2369/"/>
+    <id>https://zigzagk.github.io/2018/04/02/BZOJ2369/</id>
     <published>2018-04-02T03:47:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -340,19 +340,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="BZOJ" scheme="http://yoursite.com/categories/Online-Judge/BZOJ/"/>
+      <category term="BZOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/BZOJ/"/>
     
     
-      <category term="决策单调性" scheme="http://yoursite.com/tags/%E5%86%B3%E7%AD%96%E5%8D%95%E8%B0%83%E6%80%A7/"/>
+      <category term="决策单调性" scheme="https://zigzagk.github.io/tags/%E5%86%B3%E7%AD%96%E5%8D%95%E8%B0%83%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>[DP]BZOJ1566(NOI2009)【管道取珠】题解</title>
-    <link href="http://yoursite.com/2018/03/29/BZOJ1566/"/>
-    <id>http://yoursite.com/2018/03/29/BZOJ1566/</id>
+    <link href="https://zigzagk.github.io/2018/03/29/BZOJ1566/"/>
+    <id>https://zigzagk.github.io/2018/03/29/BZOJ1566/</id>
     <published>2018-03-29T13:04:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -365,19 +365,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="BZOJ" scheme="http://yoursite.com/categories/Online-Judge/BZOJ/"/>
+      <category term="BZOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/BZOJ/"/>
     
     
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+      <category term="DP" scheme="https://zigzagk.github.io/tags/DP/"/>
     
   </entry>
   
   <entry>
     <title>简单解决hexo-theme-yilia Markdown列表显示错误的问题</title>
-    <link href="http://yoursite.com/2018/03/20/YiliaMarkdownList/"/>
-    <id>http://yoursite.com/2018/03/20/YiliaMarkdownList/</id>
+    <link href="https://zigzagk.github.io/2018/03/20/YiliaMarkdownList/"/>
+    <id>https://zigzagk.github.io/2018/03/20/YiliaMarkdownList/</id>
     <published>2018-03-20T09:50:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -390,19 +390,19 @@
     
     </summary>
     
-      <category term="杂" scheme="http://yoursite.com/categories/%E6%9D%82/"/>
+      <category term="杂" scheme="https://zigzagk.github.io/categories/%E6%9D%82/"/>
     
-      <category term="Hexo" scheme="http://yoursite.com/categories/%E6%9D%82/Hexo/"/>
+      <category term="Hexo" scheme="https://zigzagk.github.io/categories/%E6%9D%82/Hexo/"/>
     
     
-      <category term="自己的理解" scheme="http://yoursite.com/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+      <category term="自己的理解" scheme="https://zigzagk.github.io/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>[wqs二分+DP]POJ1160【Post Office】题解</title>
-    <link href="http://yoursite.com/2018/03/15/POJ1160/"/>
-    <id>http://yoursite.com/2018/03/15/POJ1160/</id>
+    <link href="https://zigzagk.github.io/2018/03/15/POJ1160/"/>
+    <id>https://zigzagk.github.io/2018/03/15/POJ1160/</id>
     <published>2018-03-15T07:54:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -415,21 +415,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="POJ" scheme="http://yoursite.com/categories/Online-Judge/POJ/"/>
+      <category term="POJ" scheme="https://zigzagk.github.io/categories/Online-Judge/POJ/"/>
     
     
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+      <category term="DP" scheme="https://zigzagk.github.io/tags/DP/"/>
     
-      <category term="二分" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86/"/>
+      <category term="二分" scheme="https://zigzagk.github.io/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
   <entry>
     <title>[最大密度子图]POJ3155【Hard Life】题解</title>
-    <link href="http://yoursite.com/2018/03/14/POJ3155/"/>
-    <id>http://yoursite.com/2018/03/14/POJ3155/</id>
+    <link href="https://zigzagk.github.io/2018/03/14/POJ3155/"/>
+    <id>https://zigzagk.github.io/2018/03/14/POJ3155/</id>
     <published>2018-03-14T06:28:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -442,19 +442,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="分数规划" scheme="http://yoursite.com/tags/%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/"/>
+      <category term="分数规划" scheme="https://zigzagk.github.io/tags/%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解</title>
-    <link href="http://yoursite.com/2018/03/12/BZOJ1797/"/>
-    <id>http://yoursite.com/2018/03/12/BZOJ1797/</id>
+    <link href="https://zigzagk.github.io/2018/03/12/BZOJ1797/"/>
+    <id>https://zigzagk.github.io/2018/03/12/BZOJ1797/</id>
     <published>2018-03-12T07:45:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -471,21 +471,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="BZOJ" scheme="http://yoursite.com/categories/Online-Judge/BZOJ/"/>
+      <category term="BZOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/BZOJ/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
+      <category term="强连通分量" scheme="https://zigzagk.github.io/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
   </entry>
   
   <entry>
     <title>[最大权闭合图]BZOJ4873(Shoi2017)【寿司餐厅】题解</title>
-    <link href="http://yoursite.com/2018/03/10/BZOJ4873/"/>
-    <id>http://yoursite.com/2018/03/10/BZOJ4873/</id>
+    <link href="https://zigzagk.github.io/2018/03/10/BZOJ4873/"/>
+    <id>https://zigzagk.github.io/2018/03/10/BZOJ4873/</id>
     <published>2018-03-10T07:41:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -498,19 +498,19 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
-      <category term="BZOJ" scheme="http://yoursite.com/categories/Online-Judge/BZOJ/"/>
+      <category term="BZOJ" scheme="https://zigzagk.github.io/categories/Online-Judge/BZOJ/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
   </entry>
   
   <entry>
     <title>[最大权闭合图]BZOJ1497(NOI2006)【最大获利】题解</title>
-    <link href="http://yoursite.com/2018/03/08/BZOJ1497/"/>
-    <id>http://yoursite.com/2018/03/08/BZOJ1497/</id>
+    <link href="https://zigzagk.github.io/2018/03/08/BZOJ1497/"/>
+    <id>https://zigzagk.github.io/2018/03/08/BZOJ1497/</id>
     <published>2018-03-08T13:14:00.000Z</published>
     <updated>2018-04-29T17:36:31.000Z</updated>
     
@@ -523,10 +523,10 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="https://zigzagk.github.io/categories/Online-Judge/"/>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://zigzagk.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
   </entry>
   
