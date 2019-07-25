@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解 | ZigZagK的博客 | Never give up fighting!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="网络流,强连通分量">
+    <meta name="description" content="题目概述 给出一张 \(n\) 个点 \(m\) 条有向边的图，现在要求 \(S,T\) 的最小割，问每一条边：  有没有可能出现在最小割中。 是否一定出现在最小割中。">
+<meta name="keywords" content="网络流,强连通分量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解">
+<meta property="og:url" content="http://yoursite.com/2018/03/12/BZOJ1797/index.html">
+<meta property="og:site_name" content="ZigZagK的博客">
+<meta property="og:description" content="题目概述 给出一张 \(n\) 个点 \(m\) 条有向边的图，现在要求 \(S,T\) 的最小割，问每一条边：  有没有可能出现在最小割中。 是否一定出现在最小割中。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-29T17:36:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解">
+<meta name="twitter:description" content="题目概述 给出一张 \(n\) 个点 \(m\) 条有向边的图，现在要求 \(S,T\) 的最小割，问每一条边：  有没有可能出现在最小割中。 是否一定出现在最小割中。">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZigZagK的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZigZagK</h5>
+          <a href="mailto:744388629@qq.com" title="744388629@qq.com" class="mail">744388629@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZigZagK" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-12T07:45:00.000Z" itemprop="datePublished" class="page-time">
+  2018-03-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/">Online Judge</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/BZOJ/">BZOJ</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题报告"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题报告</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#示例程序"><span class="post-toc-number">3.</span> <span class="post-toc-text">示例程序</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-BZOJ1797"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-12 15:45:00" datetime="2018-03-12T07:45:00.000Z"  itemprop="datePublished">2018-03-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/">Online Judge</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/BZOJ/">BZOJ</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目概述">题目概述</h2>
+<p>给出一张 <span class="math inline">\(n\)</span> 个点 <span class="math inline">\(m\)</span> 条有向边的图，现在要求 <span class="math inline">\(S,T\)</span> 的最小割，问每一条边：</p>
+<ol type="1">
+<li>有没有可能出现在最小割中。</li>
+<li>是否一定出现在最小割中。</li>
+</ol>
+<a id="more"></a>
+<h2 id="解题报告">解题报告</h2>
+<p>先跑出随意一种最小割（最大流），然后在残量网络里缩点，接下来好像有结论？</p>
+<ul>
+<li><span class="math inline">\((x,y)\)</span> 可能出现：<span class="math inline">\(SCC_x\not=SCC_y\)</span> 。</li>
+<li><span class="math inline">\((x,y)\)</span> 一定出现：<span class="math inline">\(SCC_S=SCC_x,SCC_y=SCC_T\)</span> 。</li>
+</ul>
+<p><del>yy一下还是挺显然的。</del>因为缩点之后只剩下满流边，所以新图中每一种割都恰好对应原来的一种最小割，只要 <span class="math inline">\(x,y\)</span> 不在同一个强连通分量中，就可以被切断（从而形成某种最小割）；如果 <span class="math inline">\(S\)</span> 和 <span class="math inline">\(x\)</span> 在一起而 <span class="math inline">\(y\)</span> 和 <span class="math inline">\(T\)</span> 在一起，就说明 <span class="math inline">\((x,y)\)</span> 必须切断才可能切断 <span class="math inline">\(S\)</span> 到 <span class="math inline">\(T\)</span> 。最后再注意一下流量为 <span class="math inline">\(0\)</span> 的边就行了。</p>
+<h2 id="示例程序">示例程序</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sc second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">4000</span>,maxm=<span class="number">60000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,S,T,x[maxm+<span class="number">5</span>],y[maxm+<span class="number">5</span>],z[maxm+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> dfn[maxn+<span class="number">5</span>],low[maxn+<span class="number">5</span>],top,stk[maxn+<span class="number">5</span>],SCC[maxn+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> E,lnk[maxn+<span class="number">5</span>],son[(maxm&lt;&lt;<span class="number">1</span>)+<span class="number">5</span>],nxt[(maxm&lt;&lt;<span class="number">1</span>)+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> cur[maxn+<span class="number">5</span>],que[maxn+<span class="number">5</span>],ti,vis[maxn+<span class="number">5</span>],dis[maxn+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> instk[maxn+<span class="number">5</span>];pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; e[(maxm&lt;&lt;<span class="number">1</span>)+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span>&#123;</span><br><span class="line">	son[E]=y;e[E]=mp(<span class="number">0</span>,z);nxt[E]=lnk[x];lnk[x]=E++;</span><br><span class="line">	son[E]=x;e[E]=mp(<span class="number">0</span>,<span class="number">0</span>);nxt[E]=lnk[y];lnk[y]=E++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Bfs</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> Head=<span class="number">0</span>,Tail=<span class="number">0</span>;que[++Tail]=s;vis[s]=++ti;dis[s]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (Head!=Tail)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x=que[++Head],j=lnk[x],u;~j;j=nxt[j])</span><br><span class="line">			<span class="keyword">if</span> (vis[u=son[j]]&lt;ti&amp;&amp;e[j].fr&lt;e[j].sc) que[++Tail]=u,vis[u]=ti,dis[u]=dis[x]+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> vis[t]==ti;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> gl,<span class="keyword">int</span> MIN=<span class="number">2e9</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x==gl||!MIN) <span class="keyword">return</span> MIN;<span class="keyword">int</span> f=<span class="number">0</span>,now;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> &amp;j=cur[x];~j;j=nxt[j])</span><br><span class="line">		<span class="keyword">if</span> (dis[x]+<span class="number">1</span>==dis[son[j]]&amp;&amp;(now=Dfs(son[j],gl,min(MIN,e[j].sc-e[j].fr))))&#123;</span><br><span class="line">			f+=now;e[j].fr+=now;e[j^<span class="number">1</span>].fr-=now;</span><br><span class="line">			<span class="keyword">if</span> (!(MIN-=now)) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	dfn[x]=low[x]=++ti;stk[++top]=x;instk[x]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j=lnk[x];~j;j=nxt[j])</span><br><span class="line">		<span class="keyword">if</span> (e[j].fr&lt;e[j].sc)</span><br><span class="line">			<span class="keyword">if</span> (!dfn[son[j]]) Tarjan(son[j]),low[x]=min(low[x],low[son[j]]);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (instk[son[j]]) low[x]=min(low[x],dfn[son[j]]);</span><br><span class="line">	<span class="keyword">if</span> (dfn[x]==low[x])</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> y=(SCC[<span class="number">0</span>]++,stk[top--]);;y=stk[top--])</span><br><span class="line">			&#123;SCC[y]=SCC[<span class="number">0</span>];instk[y]=<span class="literal">false</span>;<span class="keyword">if</span> (x==y) <span class="keyword">break</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"program.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"program.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;n,&amp;m,&amp;S,&amp;T);E=<span class="number">0</span>;<span class="built_in">memset</span>(lnk,<span class="number">255</span>,<span class="keyword">sizeof</span>(lnk));</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;x[i],&amp;y[i],&amp;z[i]),Add(x[i],y[i],z[i]);</span><br><span class="line">	<span class="keyword">while</span> (Bfs(S,T)) <span class="built_in">memcpy</span>(cur,lnk,<span class="keyword">sizeof</span>(lnk)),Dfs(S,T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span> (!dfn[i]) Tarjan(i);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (e[i<span class="number">-1</span>&lt;&lt;<span class="number">1</span>].fr&lt;e[i<span class="number">-1</span>&lt;&lt;<span class="number">1</span>].sc) &#123;<span class="built_in">puts</span>(<span class="string">"0 0"</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">		<span class="built_in">putchar</span>((SCC[x[i]]!=SCC[y[i]])+<span class="number">48</span>);<span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">		<span class="built_in">putchar</span>((SCC[S]==SCC[x[i]]&amp;&amp;SCC[y[i]]==SCC[T])+<span class="number">48</span>);<span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-29T17:36:31.000Z" itemprop="dateUpdated">2018-04-30 01:36:31</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/03/12/BZOJ1797/" target="_blank" rel="external">http://yoursite.com/2018/03/12/BZOJ1797/</a><br>本博客所有文章除特别声明外均为原创，转载请注明出处，谢谢！
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="ZigZagK">
+            ZigZagK
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/强连通分量/">强连通分量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/12/BZOJ1797/&title=《[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/12/BZOJ1797/&title=《[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解》 — ZigZagK的博客&source=题目概述
+给出一张 \(n\) 个点 \(m\) 条有向边的图，现在要求 \(S,T\) 的最小割，问每一条边：
+
+有没有可能出现在最小割中。
+是否一定出..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/12/BZOJ1797/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解》 — ZigZagK的博客&url=http://yoursite.com/2018/03/12/BZOJ1797/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/12/BZOJ1797/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/14/POJ3155/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[最大密度子图]POJ3155【Hard Life】题解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/10/BZOJ4873/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[最大权闭合图]BZOJ4873(Shoi2017)【寿司餐厅】题解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢打赏QwQ！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZigZagK &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/12/BZOJ1797/&title=《[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/12/BZOJ1797/&title=《[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解》 — ZigZagK的博客&source=题目概述
+给出一张 \(n\) 个点 \(m\) 条有向边的图，现在要求 \(S,T\) 的最小割，问每一条边：
+
+有没有可能出现在最小割中。
+是否一定出..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/12/BZOJ1797/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[最小割+Tarjan]BZOJ1797(Ahoi2009)【Mincut 最小割】题解》 — ZigZagK的博客&url=http://yoursite.com/2018/03/12/BZOJ1797/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/12/BZOJ1797/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aO3IDIRAFQN3/0jhxoGTRm2FhZVcTuSwVNAqm5sPrFa/xtq7+//7puFjz3W5buLi4y9wxXesHzK+RG3Bxcc9zk2Oq3xnByvfHxcX9K9y7vomLi/ufuElRNE90cHFxv5mbpyDVxOWxWg0XF3eB22tt3Pv3lv4uLi5uizuKK2mDzgNW79zfHXBxcY9w84CSoHPo0rm4uLgHudWCJG9tRM2O+MK4uLi7udU2aLXdme8ZNUdwcXGPcHPKygXyEqj8c+Di4m7gVoegeRs0v17+tAsXF/cMN29t9J5Z5JcvtE5wcXE3c6vPI3rtj94zjsu4i4uL+xB3vt08YK0nMR+KH1xc3M3cZELRw/WGJVEyhIuLe4Sbj1RXAlyeGEXjWFxc3M3cfOxRDVv5Ps13ZLi4uEe4vTKm2uzIh69R8YOLi7uNWw4o8cG3ZWG4uLhHuKO4eoPYaoiMfldcXNxt3GpwaTY340SqF2RxcXF3cPMm6fozi2SgUniehYuLu5mbD1mToHNvORTVRri4uI9yq6EtT32i/AsXF/frub3UJwlnW55s4uLiFrn5Y6zeaLa3Ay4u7lPcasWxvmneHl3q7+Li4na4P7mn4jER4PIrAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '别走呀QAQ！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来QwQ~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

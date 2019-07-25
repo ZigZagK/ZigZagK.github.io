@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>[最小割]BZOJ3144(Hnoi2013)【切糕】题解 | ZigZagK的博客 | Never give up fighting!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="网络流">
+    <meta name="description" content="题目概述 有一块 \(X\times Y\times Z\) 的切糕，每个点 \((x,y,z)\) 都有不和谐值 \(v(x,y,z)\) 。现在要切这块切糕，为每个直线 \((x,y)\) 选出一个点 \(z\) ，一种切法的不和谐值为选出点的不和谐值之和，为了平整还需要满足两条相邻的直线选出的点距离不超过 \(D\) 。求最小不和谐值。">
+<meta name="keywords" content="网络流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[最小割]BZOJ3144(Hnoi2013)【切糕】题解">
+<meta property="og:url" content="http://yoursite.com/2018/04/11/BZOJ3144/index.html">
+<meta property="og:site_name" content="ZigZagK的博客">
+<meta property="og:description" content="题目概述 有一块 \(X\times Y\times Z\) 的切糕，每个点 \((x,y,z)\) 都有不和谐值 \(v(x,y,z)\) 。现在要切这块切糕，为每个直线 \((x,y)\) 选出一个点 \(z\) ，一种切法的不和谐值为选出点的不和谐值之和，为了平整还需要满足两条相邻的直线选出的点距离不超过 \(D\) 。求最小不和谐值。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-29T17:36:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[最小割]BZOJ3144(Hnoi2013)【切糕】题解">
+<meta name="twitter:description" content="题目概述 有一块 \(X\times Y\times Z\) 的切糕，每个点 \((x,y,z)\) 都有不和谐值 \(v(x,y,z)\) 。现在要切这块切糕，为每个直线 \((x,y)\) 选出一个点 \(z\) ，一种切法的不和谐值为选出点的不和谐值之和，为了平整还需要满足两条相邻的直线选出的点距离不超过 \(D\) 。求最小不和谐值。">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZigZagK的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZigZagK</h5>
+          <a href="mailto:744388629@qq.com" title="744388629@qq.com" class="mail">744388629@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZigZagK" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">[最小割]BZOJ3144(Hnoi2013)【切糕】题解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">[最小割]BZOJ3144(Hnoi2013)【切糕】题解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-11T15:22:00.000Z" itemprop="datePublished" class="page-time">
+  2018-04-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/">Online Judge</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/BZOJ/">BZOJ</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题报告"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题报告</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#示例程序"><span class="post-toc-number">3.</span> <span class="post-toc-text">示例程序</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-BZOJ3144"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">[最小割]BZOJ3144(Hnoi2013)【切糕】题解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-11 23:22:00" datetime="2018-04-11T15:22:00.000Z"  itemprop="datePublished">2018-04-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/">Online Judge</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/BZOJ/">BZOJ</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目概述">题目概述</h2>
+<p>有一块 <span class="math inline">\(X\times Y\times Z\)</span> 的切糕，每个点 <span class="math inline">\((x,y,z)\)</span> 都有不和谐值 <span class="math inline">\(v(x,y,z)\)</span> 。现在要切这块切糕，为每个直线 <span class="math inline">\((x,y)\)</span> 选出一个点 <span class="math inline">\(z\)</span> ，一种切法的不和谐值为选出点的不和谐值之和，为了平整还需要满足两条相邻的直线选出的点距离不超过 <span class="math inline">\(D\)</span> 。求最小不和谐值。</p>
+<a id="more"></a>
+<h2 id="解题报告">解题报告</h2>
+<p>声名远扬(?)的切糕模型，如果没有距离限制，我们可以把每个 <span class="math inline">\((x,y)\)</span> 都从 <span class="math inline">\(S\)</span> 到 <span class="math inline">\(T\)</span> 串起来，像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S -&gt; 1 -&gt; 2 -&gt; 3 -&gt; ... -&gt; T</span><br></pre></td></tr></table></figure>
+<p>将每条边的容量设置为不和谐值，然后求最小割就是最优解。</p>
+<p>但是有限制，我们可以用容量为INF的边实现“屏蔽”效果，对于网络中的点 <span class="math inline">\((x,y,z)\)</span> ，在 <span class="math inline">\((x,y,z-1-D)\to (x&#39;,y&#39;,z-1)\)</span> 和 <span class="math inline">\((x&#39;,y&#39;,z+D)\to (x,y,z)\)</span> 之间（ <span class="math inline">\((x,y)\)</span> 与 <span class="math inline">\((x&#39;,y&#39;)\)</span> 相邻）连容量为INF的边，这样就会形成一个 <span class="math inline">\(S\to (x,y,z-1)\to (x&#39;,y&#39;,z-D)\to (x&#39;,y&#39;,z+D)\to (x,y,z)\to T\)</span> 的“通路”，从而阻止其他边被选。</p>
+<h2 id="示例程序">示例程序</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sc second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">40</span>,maxt=maxn*maxn*maxn,maxe=(maxt+(maxt&lt;&lt;<span class="number">3</span>))&lt;&lt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> fl[<span class="number">4</span>][<span class="number">2</span>]=&#123;&#123;<span class="number">-1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">-1</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>&#125;&#125;,INF=<span class="number">2e9</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> X,Y,Z,D,n,ans;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; e[maxe+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> E,lnk[maxt+<span class="number">5</span>],son[maxe+<span class="number">5</span>],nxt[maxe+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> que[maxt+<span class="number">5</span>],dis[maxt+<span class="number">5</span>],ti,vis[maxt+<span class="number">5</span>],cur[maxt+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">ID</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span> </span>&#123;<span class="keyword">if</span> (!z) <span class="keyword">return</span> <span class="number">0</span>;<span class="keyword">return</span> z&lt;Z?(x<span class="number">-1</span>)*Y*Z+(y<span class="number">-1</span>)*Z+z:n+<span class="number">1</span>;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span>&#123;</span><br><span class="line">	son[E]=y;e[E]=mp(<span class="number">0</span>,z);nxt[E]=lnk[x];lnk[x]=E++;</span><br><span class="line">	son[E]=x;e[E]=mp(<span class="number">0</span>,<span class="number">0</span>);nxt[E]=lnk[y];lnk[y]=E++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Bfs</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> Head=<span class="number">0</span>,Tail=<span class="number">0</span>;que[++Tail]=s;vis[s]=++ti;dis[s]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (Head!=Tail)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x=que[++Head],j=lnk[x],u;~j;j=nxt[j])</span><br><span class="line">			<span class="keyword">if</span> (vis[u=son[j]]&lt;ti&amp;&amp;e[j].fr&lt;e[j].sc) que[++Tail]=u,vis[u]=ti,dis[u]=dis[x]+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> vis[t]==ti;		</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> t,<span class="keyword">int</span> MIN=INF)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x==t||!MIN) <span class="keyword">return</span> MIN;<span class="keyword">int</span> f=<span class="number">0</span>,now;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> &amp;j=cur[x];~j;j=nxt[j])</span><br><span class="line">		<span class="keyword">if</span> (dis[x]+<span class="number">1</span>==dis[son[j]]&amp;&amp;(now=Dfs(son[j],t,min(MIN,e[j].sc-e[j].fr))))&#123;</span><br><span class="line">			e[j].fr+=now;e[j^<span class="number">1</span>].fr-=now;f+=now;</span><br><span class="line">			<span class="keyword">if</span> (!(MIN-=now)) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	freopen(<span class="string">"program.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"program.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;X,&amp;Y,&amp;Z,&amp;D);n=X*Y*Z;E=<span class="number">0</span>;<span class="built_in">memset</span>(lnk,<span class="number">255</span>,<span class="keyword">sizeof</span>(lnk));</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> z=<span class="number">1</span>;z&lt;=Z;z++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x=<span class="number">1</span>;x&lt;=X;x++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> y=<span class="number">1</span>,val;y&lt;=Y;y++)</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;val),Add(ID(x,y,z<span class="number">-1</span>),ID(x,y,z),val);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=X;i++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=Y;j++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> f=<span class="number">0</span>;f&lt;<span class="number">4</span>;f++)&#123;</span><br><span class="line">				<span class="keyword">int</span> x=i+fl[f][<span class="number">0</span>],y=j+fl[f][<span class="number">1</span>];</span><br><span class="line">				<span class="keyword">if</span> (x&lt;<span class="number">1</span>||x&gt;X||y&lt;<span class="number">1</span>||y&gt;Y) <span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=Z;k++)&#123;</span><br><span class="line">					<span class="keyword">if</span> (k&gt;D+<span class="number">1</span>) Add(ID(i,j,k<span class="number">-1</span>),ID(x,y,k<span class="number">-1</span>-D),INF);</span><br><span class="line">					<span class="keyword">if</span> (k+D&lt;Z) Add(ID(i,j,k+D),ID(x,y,k),INF);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="keyword">while</span> (Bfs(<span class="number">0</span>,n+<span class="number">1</span>)) <span class="built_in">memcpy</span>(cur,lnk,<span class="keyword">sizeof</span>(lnk)),ans+=Dfs(<span class="number">0</span>,n+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans),<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-29T17:36:31.000Z" itemprop="dateUpdated">2018-04-30 01:36:31</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/04/11/BZOJ3144/" target="_blank" rel="external">http://yoursite.com/2018/04/11/BZOJ3144/</a><br>本博客所有文章除特别声明外均为原创，转载请注明出处，谢谢！
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="ZigZagK">
+            ZigZagK
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/11/BZOJ3144/&title=《[最小割]BZOJ3144(Hnoi2013)【切糕】题解》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/11/BZOJ3144/&title=《[最小割]BZOJ3144(Hnoi2013)【切糕】题解》 — ZigZagK的博客&source=题目概述
+有一块 \(X\times Y\times Z\) 的切糕，每个点 \((x,y,z)\) 都有不和谐值 \(v(x,y,z)\) 。现在要切这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/11/BZOJ3144/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[最小割]BZOJ3144(Hnoi2013)【切糕】题解》 — ZigZagK的博客&url=http://yoursite.com/2018/04/11/BZOJ3144/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/11/BZOJ3144/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/15/TopCoderRangeEncoding/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[TC交题指南]TopCoder【RangeEncoding】题解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/11/BZOJ4310/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[二分+后缀数组]BZOJ4310【跳蚤】题解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢打赏QwQ！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZigZagK &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/11/BZOJ3144/&title=《[最小割]BZOJ3144(Hnoi2013)【切糕】题解》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/11/BZOJ3144/&title=《[最小割]BZOJ3144(Hnoi2013)【切糕】题解》 — ZigZagK的博客&source=题目概述
+有一块 \(X\times Y\times Z\) 的切糕，每个点 \((x,y,z)\) 都有不和谐值 \(v(x,y,z)\) 。现在要切这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/11/BZOJ3144/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[最小割]BZOJ3144(Hnoi2013)【切糕】题解》 — ZigZagK的博客&url=http://yoursite.com/2018/04/11/BZOJ3144/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/11/BZOJ3144/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3aS44CMQwFQO5/aUaaLXTPe/nBSJUVaqBT2ViO7ccjXs/fdf/89fPrev32sWPh4uJOc5+364o78/v8eG+OhIuLe5CbBKn7zfIgmBzv8jkuLu6XcRPQ2C9xcXH/Lzeh5P/CxcX9fm5byGgDVv5k2V0NFxd3gtsWTHd83ljfxcXFLbnPcrWljbGS6+XuuLi4R7jJNvcb3B8gKZvWKRQuLu5m7tgr5scp8vJKEcJwcXE3cJNw1qYpyZhFIcHFxT3CnbmKzA9tzLRhcHFx93GTwJRfb5I35OHszY64uLhHuKsaJ+31Jg+jW/o8uLi4Abdtk4xdZpYdDxcXdzN3VbIydoz82nOZkeHi4h7htsErb6/OFERwcXHPc9vUJHk+lvrcvxkXF/cMtw0leeKS/ytPs3Bxcc9wk8AxVjAdS5j+OBIuLu5BbluNzJ/X7dIkkOHi4h7htmNYYwNbeVG17sTi4uIu5bYBJdk4T4aSFsvYMAcuLu48d6zQWScoZSP2MsDh4uIe5LbpSN5KGZwXa8ezcHFxP8TNGy2rWixTgQwXF/fLuGOgqMiCi4t7kNuOSqwKWG1TFhcX9wy3vXG0pZOxIQ9cXNwPcX8ARryVjAe0/M8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '别走呀QAQ！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来QwQ~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

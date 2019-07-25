@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Hexo用Leancloud实现阅读量和评论数的统计与排序 | ZigZagK的博客 | Never give up fighting!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="自己的理解">
+    <meta name="description" content="自我感觉Leancloud非常好用啊XD！">
+<meta name="keywords" content="自己的理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo用Leancloud实现阅读量和评论数的统计与排序">
+<meta property="og:url" content="http://yoursite.com/2018/04/21/HexoLeancloud/index.html">
+<meta property="og:site_name" content="ZigZagK的博客">
+<meta property="og:description" content="自我感觉Leancloud非常好用啊XD！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/pasted-1.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-2.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-3.png">
+<meta property="og:updated_time" content="2018-04-29T17:36:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo用Leancloud实现阅读量和评论数的统计与排序">
+<meta name="twitter:description" content="自我感觉Leancloud非常好用啊XD！">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZigZagK的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZigZagK</h5>
+          <a href="mailto:744388629@qq.com" title="744388629@qq.com" class="mail">744388629@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZigZagK" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hexo用Leancloud实现阅读量和评论数的统计与排序</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hexo用Leancloud实现阅读量和评论数的统计与排序</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-21T08:44:00.000Z" itemprop="datePublished" class="page-time">
+  2018-04-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/杂/">杂</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/杂/Hexo/">Hexo</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#阅读量统计"><span class="post-toc-number">1.</span> <span class="post-toc-text">阅读量统计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#阅读量排行"><span class="post-toc-number">2.</span> <span class="post-toc-text">阅读量排行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#评论数统计"><span class="post-toc-number">3.</span> <span class="post-toc-text">评论数统计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最近评论"><span class="post-toc-number">4.</span> <span class="post-toc-text">最近评论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果"><span class="post-toc-number">5.</span> <span class="post-toc-text">效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-HexoLeancloud"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo用Leancloud实现阅读量和评论数的统计与排序</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-21 16:44:00" datetime="2018-04-21T08:44:00.000Z"  itemprop="datePublished">2018-04-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/杂/">杂</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/杂/Hexo/">Hexo</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>自我感觉Leancloud非常好用啊XD！</p>
+<a id="more"></a>
+<h2 id="阅读量统计">阅读量统计</h2>
+<p>Hexo想实现博客阅读量统计需要借助统计网站，Leancloud是比较不错的选择。</p>
+<p>在你的应用里创建名为"Counter"的Class，注意权限要给成无限制（所以一定要设置Web安全域名！）。</p>
+<p>以yilia为例，在<code>after-footer.ejs</code>里添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&lt;%- theme.js_cdn.jquery %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&lt;%- theme.js_cdn.av %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span> </span><br><span class="line"><span class="xml">if(<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.enable</span> %&gt;</span>)&#123;</span></span><br><span class="line"><span class="xml">    var leancloud_app_id  = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_id</span> %&gt;</span>';</span></span><br><span class="line"><span class="xml">    var leancloud_app_key = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_key</span> %&gt;</span>';</span></span><br><span class="line">    AV.init(&#123;</span><br><span class="line">        appId: leancloud_app_id,</span><br><span class="line">        appKey: leancloud_app_key</span><br><span class="line">    &#125;);</span><br><span class="line">    var pageViewsLength = $(".pageViews").length;</span><br><span class="line">    var isIndex = $("#page-nav").length &gt; 0 ?true:false;</span><br><span class="line">    function showTime() &#123;</span><br><span class="line">        var Counter = AV.Object.extend("Counter");</span><br><span class="line">        if(isIndex)&#123;</span><br><span class="line">            $(".pageViews").each(function()&#123;</span><br><span class="line">                showPageViewsNum($(this),Counter);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            addPageViewsNum($(".pageViews"));</span><br><span class="line">            showPageViewsNum($(".pageViews"),Counter);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    function showPageViewsNum(ele,Counter)&#123;</span><br><span class="line">        var query = new AV.Query("Counter");</span><br><span class="line">        var url = ele.attr('id').trim();</span><br><span class="line">        query.equalTo("words",url);</span><br><span class="line">        query.find().then(function(results)&#123;</span><br><span class="line">        	if (results.length&gt;0) $(document.getElementById(url)).text(results[0].get("views"));</span><br><span class="line">        	else $(document.getElementById(url)).text('0');</span><br><span class="line">        &#125;,function(error)&#123;$(document.getElementById(url)).text('0');&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    function addPageViewsNum(ele)&#123;</span><br><span class="line">        var url = ele.attr('id').trim();var title = $('.article-title').text().trim();</span><br><span class="line">        var Counter = AV.Object.extend("Counter");</span><br><span class="line">        var now=new AV.Query(Counter);now.equalTo("words",url);</span><br><span class="line">        now.find().then(function(results)&#123;</span><br><span class="line">            if (results.length&gt;0)&#123;</span><br><span class="line">                var query=results[0];</span><br><span class="line">                query.increment("views");</span><br><span class="line">                query.fetchWhenSave(true);</span><br><span class="line">                query.save();</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                var query = new Counter;</span><br><span class="line">                query.set("words",url);</span><br><span class="line">                query.set("title",title);</span><br><span class="line">                query.set("views",1);</span><br><span class="line">                query.save(null,&#123;&#125;).then(function (object) &#123;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,function(error)&#123;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    if(pageViewsLength)&#123;</span><br><span class="line">        showTime();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>差不多就是检查这篇文章有没有被访问过，有的话直接更新原来的信息，将<code>views</code>加一，否则创建新的信息。</p>
+<p>显示阅读量的话，根据你提供的<code>url</code>来获取到对应的信息，得到<code>views</code>，然后用js更改网页上的指定位置。在<code>article.ejs</code>的合适位置添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"&lt;%- url_for(post.path) %&gt;"</span> <span class="attr">class</span>=<span class="string">"pageViews"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然，还需要在<code>_config.yml</code>里添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">leancloud_visitors:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  app_id:</span> <span class="string">你的ID</span> </span><br><span class="line"><span class="attr">  app_key:</span> <span class="string">你的KEY</span></span><br><span class="line"></span><br><span class="line"><span class="attr">js_cdn:</span></span><br><span class="line"><span class="attr">  jquery:</span> <span class="attr">https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js</span></span><br><span class="line">  <span class="string">av</span> <span class="string">:</span> <span class="string">//cdn1.lncld.net/static/js/2.5.0/av-min.js</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>题外话：原先阅读量采用的是一次加一条信息的方法，但是直到星期四学弟们集体写vbs“攻击”了我的博客……上千条信息我TM根本没法删……现在这种方法就可以直接改<code>views</code>，相对来说方便很多。</p>
+</blockquote>
+<h2 id="阅读量排行">阅读量排行</h2>
+<p>因为信息中存了<code>views</code>，而且Leancloud自带很多有用的操作，所以我们可以实现阅读量排行！</p>
+<p>首先在你想显示的地方加上<code>&lt;ul class="HotArticle"&gt;&lt;/ul&gt;</code>用来得到排行列表，<code>class</code>可以随便给（但是最好不要和其他<code>class</code>一样，不然可能会出锅QAQ）。</p>
+<p>然后在<code>after-footer.ejs</code>里添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="xml">    var leancloud_app_id  = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_id</span> %&gt;</span>';</span></span><br><span class="line"><span class="xml">    var leancloud_app_key = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_key</span> %&gt;</span>';</span></span><br><span class="line">    AV.init(&#123;</span><br><span class="line">        appId: lealeancloud_app_keyncloud_app_id,</span><br><span class="line">        appKey: leancloud_app_key</span><br><span class="line">    &#125;);</span><br><span class="line">    var Counter=AV.Object.extend("Counter");var query=new AV.Query(Counter);</span><br><span class="line">    query.descending("views");query.limit(10); </span><br><span class="line">    query.find().then(function(results)&#123;</span><br><span class="line">        for(var i=0;i&lt;results.length;i++)&#123;</span><br><span class="line">            var counter=results[i];</span><br><span class="line">            var title=counter.get("title");</span><br><span class="line">            var url=counter.get("words");</span><br><span class="line">            var views=counter.get("views");</span><br><span class="line"><span class="xml">            $('.HotArticle').append('<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"'+url+'"</span>&gt;</span>'+title+'<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>'+views+'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>');</span></span><br><span class="line">            //$('.class')中的class一定要和上面的class一样</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,function(error)&#123;&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不难看出这就是调用了Leancloud自带的排序，然后输出到排行列表里。最后改一下排行列表的样式就行了~~~</p>
+<h2 id="评论数统计">评论数统计</h2>
+<p>Emm……这个有些复杂，但并不是很难实现。</p>
+<p>首先你要使用<a href="https://panjunwen.com/diy-a-comment-system/" target="_blank" rel="noopener">Valine评论系统</a>，是借助Leancloud实现的，跟着链接里说的做就行了。</p>
+<blockquote>
+<p>题外话：Valine要实现邮箱提醒功能，一定要使用链接里Dalao给出的Valine.min.js<del>（或者你可以自己写）</del>。</p>
+</blockquote>
+<p>随便发几条评论，到Leancloud里查看，会发现储存下来的信息中有一个<code>url</code>记录了文章链接，用这个就可以搞事情了！</p>
+<p>在<code>after-footer.ejs</code>里添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span> </span><br><span class="line"><span class="xml">if(<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.enable</span> %&gt;</span>)&#123;</span></span><br><span class="line"><span class="xml">    var leancloud_app_id  = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_id</span> %&gt;</span>';</span></span><br><span class="line"><span class="xml">    var leancloud_app_key = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_key</span> %&gt;</span>';</span></span><br><span class="line">    AV.init(&#123;</span><br><span class="line">        appId: leancloud_app_id,</span><br><span class="line">        appKey: leancloud_app_key</span><br><span class="line">    &#125;);</span><br><span class="line">    var commentCountLength = $(".commentCount").length;</span><br><span class="line">    var isIndex = $(".commentCount").length &gt; 1 ?true:false;</span><br><span class="line">    function showCount() &#123;</span><br><span class="line">        var Comment = AV.Object.extend("Comment");</span><br><span class="line">        if(isIndex)&#123;</span><br><span class="line">            $(".commentCount").each(function()&#123;</span><br><span class="line">                showcommentCountNum($(this),Comment);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            showcommentCountNum($(".commentCount"),Comment);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    function showcommentCountNum(ele,Comment)&#123;</span><br><span class="line">        var query = new AV.Query("Comment");</span><br><span class="line">        var key = ele.attr('id').trim();var url = key.substring(0,key.length-12);</span><br><span class="line">            query.equalTo("url", url);</span><br><span class="line">            query.count().then(function (number) &#123;</span><br><span class="line">                $(document.getElementById(key)).text(number?  number : '0');</span><br><span class="line">            &#125;, function (error) &#123;</span><br><span class="line">                $(document.getElementById(key)).text('0');</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    if(commentCountLength)&#123;</span><br><span class="line">        showCount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>代码可能有些奇怪，不要在意QAQ。原理差不多就是统计出信息中<code>url</code>为当前文章链接的信息数量。</p>
+<p>在<code>article.ejs</code>的合适位置添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"&lt;%- url_for(post.path) %&gt;commentCount"</span> <span class="attr">class</span>=<span class="string">"commentCount"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="最近评论">最近评论</h2>
+<p>和阅读量排行差不多啦，每条信息都会有个创建时间<code>createdAt</code>，按照这个排序之后取前若干个就行了。</p>
+<p>先在要显示的地方添加<code>&lt;ul class="LatestComment"&gt;&lt;/ul&gt;</code>，然后在<code>after-footer.ejs</code>中添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="xml">    var leancloud_app_id  = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_id</span> %&gt;</span>';</span></span><br><span class="line"><span class="xml">    var leancloud_app_key = '<span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.leancloud_visitors.app_key</span> %&gt;</span>';</span></span><br><span class="line">    AV.init(&#123;</span><br><span class="line">        appId: leancloud_app_id,</span><br><span class="line">        appKey: leancloud_app_key</span><br><span class="line">    &#125;);</span><br><span class="line">    var Comment=AV.Object.extend("Comment");</span><br><span class="line">    var query=new AV.Query(Comment);</span><br><span class="line">    query.descending("createdAt");query.limit(5);</span><br><span class="line">    query.find().then(function(results)&#123;</span><br><span class="line">        for(var i=0;i&lt;results.length;i++)&#123;</span><br><span class="line">            var comment=results[i];</span><br><span class="line">            var nick=comment.get("nick");</span><br><span class="line">            var link=comment.get("link");</span><br><span class="line">            var url=comment.get("url");</span><br><span class="line">            var words=comment.get("comment");</span><br><span class="line">            var time=comment.get("createdAt").toLocaleString();</span><br><span class="line"><span class="xml">            $('.LatestComment').append('<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"'+link+'"</span>&gt;</span>'+nick+'<span class="tag">&lt;/<span class="name">a</span>&gt;</span>在<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"'+url+'#lv-container"</span>&gt;</span>'+time+'<span class="tag">&lt;/<span class="name">a</span>&gt;</span>发表：<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>'+words+'<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>');</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,function(error)&#123;&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="效果">效果</h2>
+<p>阅读量和评论数统计：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>阅读排行和最近评论：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/pasted-3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="参考">参考</h2>
+<ul>
+<li>看了<a href="http://www.cnblogs.com/stringfade/p/7738072.html" target="_blank" rel="noopener">添加 hexo yilia 主题的文章阅读量</a>和<a href="http://crescentmoon.info/2014/12/11/popular-widget/" target="_blank" rel="noopener">使用LeanCloud平台为Hexo博客添加文章浏览量统计组件</a>的代码之后魔改出了自己的代码XD。</li>
+<li><a href="https://valine.js.org/" target="_blank" rel="noopener">Valine评论系统</a></li>
+<li><a href="https://panjunwen.com/diy-a-comment-system/" target="_blank" rel="noopener">Valine: 独立博客评论系统</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-29T17:36:31.000Z" itemprop="dateUpdated">2018-04-30 01:36:31</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/04/21/HexoLeancloud/" target="_blank" rel="external">http://yoursite.com/2018/04/21/HexoLeancloud/</a><br>本博客所有文章除特别声明外均为原创，转载请注明出处，谢谢！
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="ZigZagK">
+            ZigZagK
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自己的理解/">自己的理解</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/21/HexoLeancloud/&title=《Hexo用Leancloud实现阅读量和评论数的统计与排序》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/21/HexoLeancloud/&title=《Hexo用Leancloud实现阅读量和评论数的统计与排序》 — ZigZagK的博客&source=自我感觉Leancloud非常好用啊XD！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/21/HexoLeancloud/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo用Leancloud实现阅读量和评论数的统计与排序》 — ZigZagK的博客&url=http://yoursite.com/2018/04/21/HexoLeancloud/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/21/HexoLeancloud/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/24/TopCoderEllysRPS/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[折半搜索]TopCoder【EllysRPS】题解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/19/HDU5263/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[二分+上下界费用流]HDU5263【平衡大师】题解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢打赏QwQ！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZigZagK &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/21/HexoLeancloud/&title=《Hexo用Leancloud实现阅读量和评论数的统计与排序》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/21/HexoLeancloud/&title=《Hexo用Leancloud实现阅读量和评论数的统计与排序》 — ZigZagK的博客&source=自我感觉Leancloud非常好用啊XD！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/21/HexoLeancloud/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo用Leancloud实现阅读量和评论数的统计与排序》 — ZigZagK的博客&url=http://yoursite.com/2018/04/21/HexoLeancloud/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/21/HexoLeancloud/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3awYrDMAxF0fz/T2dgVoUh7X1SXCby9Sq0xfZJQUi2jgOP83e8Pr+Ov78kn59vx7FiyJAh47EMMl06dbqt9+siqgwZMjZgkCB7V4C++pavK0OGDBk8HbzrOX19MmTIkEGW5+UrT/5kyJAh4z0jTeBI2lcrcZfX4jJkyHggo1aUfud5+f2GDBky/j3jbIyrJTsBtLgTGTJkjGaQ4pMUkDyB6zRtfNihDBkytmHUtlLD9y9NLwOuDBkyxjHS4FtLFjvhuFhzy5AhYwSDL99pueiH2g9sGTJkbMCobYj8Mn0Facg+OpuTIUPGQxidwJouTNJQ/mqC/0SGDBlDGXwijrmrRexyZhkyZAxl8LDIj+fS8J2+GnSzIUOGjHGMWlMFPzirFcZBgJYhQ8ZmjFpAvIuXlrUHObGTIUPGCEb/YmBFixgvsGXIkDGbUbuMTNNH8kmagAb9GjJkyHg4o9/0kJ538RQTJYUyZMjYgJEmYfwArlOm8nCMmsNkyJAxglFL70i4rF08FOeUIUPGBoy0pCRlbT9l5GwZMmTMZpC0jAflexPBtFaVIUPGPMYZDp7S1fDFQz0ZMmSMZtSuOWvNFulRXdr8IUOGjNmMNMj2W8TIt/EqMmTI2IDBD87SC4C4YQLX3zJkyJBRO0rrH8PxAhtFcRkyZGzGqF1nktaNJXW2DBkyxjFIEcvbtkiIbDWByZAhYzPGuouBNBAvR8qQIeN5jB8MI2qYlahsRwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '别走呀QAQ！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来QwQ~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

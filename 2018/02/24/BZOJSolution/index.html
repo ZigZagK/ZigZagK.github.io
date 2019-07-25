@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>[Top]BZOJ刷题记录（施工到AFO） | ZigZagK的博客 | Never give up fighting!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="自己的理解">
+    <meta name="description" content="BZOJ刷题记录。">
+<meta name="keywords" content="自己的理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Top]BZOJ刷题记录（施工到AFO）">
+<meta property="og:url" content="http://yoursite.com/2018/02/24/BZOJSolution/index.html">
+<meta property="og:site_name" content="ZigZagK的博客">
+<meta property="og:description" content="BZOJ刷题记录。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-25T05:30:10.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Top]BZOJ刷题记录（施工到AFO）">
+<meta name="twitter:description" content="BZOJ刷题记录。">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZigZagK的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZigZagK</h5>
+          <a href="mailto:744388629@qq.com" title="744388629@qq.com" class="mail">744388629@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZigZagK" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">[Top]BZOJ刷题记录（施工到AFO）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">[Top]BZOJ刷题记录（施工到AFO）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-24T11:52:00.000Z" itemprop="datePublished" class="page-time">
+  2018-02-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/">Online Judge</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/BZOJ/">BZOJ</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-BZOJSolution"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">[Top]BZOJ刷题记录（施工到AFO）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-24 19:52:00" datetime="2018-02-24T11:52:00.000Z"  itemprop="datePublished">2018-02-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/">Online Judge</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Online-Judge/BZOJ/">BZOJ</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>QAQ，我要努力200题！</p>
+<a id="more"></a>
+<table>
+<thead>
+<tr class="header">
+<th>题号</th>
+<th>日期</th>
+<th>题解</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BZOJ3144</td>
+<td>2018.4.11</td>
+<td><a href="/2018/04/11/BZOJ3144/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ4310</td>
+<td>2018.4.11</td>
+<td><a href="/2018/04/11/BZOJ4310/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2369</td>
+<td>2018.4.2</td>
+<td><a href="/2018/04/02/BZOJ2369/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ1566</td>
+<td>2018.3.29</td>
+<td><a href="/2018/03/29/BZOJ1566/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1797</td>
+<td>2018.3.12</td>
+<td><a href="/2018/03/12/BZOJ1797/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2435</td>
+<td>2018.3.11</td>
+<td>Dfs就好了？！</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ4873</td>
+<td>2018.3.10</td>
+<td><a href="/2018/03/10/BZOJ4873/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ1497</td>
+<td>2018.3.8</td>
+<td><a href="/2018/03/08/BZOJ1497/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2460</td>
+<td>2018.3.7</td>
+<td><a href="/2018/03/07/BZOJ2460/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2427</td>
+<td>2018.3.5</td>
+<td><a href="/2018/03/05/BZOJ2427/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ4998</td>
+<td>2018.3.4</td>
+<td>LCT+并查集</td>
+<td>BZOJ2957弱化版</td>
+</tr>
+<tr class="even">
+<td>BZOJ4033</td>
+<td>2018.2.28</td>
+<td><a href="/2018/02/28/BZOJ2299/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ3192</td>
+<td>2018.2.26</td>
+<td><a href="/2018/02/26/BZOJ3192/">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2423</td>
+<td>2018.2.24</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79359303" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1048</td>
+<td>2018.2.20</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79341168" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ1862</td>
+<td>2018.2.20</td>
+<td>同上一题</td>
+<td>双倍经验1056</td>
+</tr>
+<tr class="odd">
+<td>BZOJ1056</td>
+<td>2018.2.20</td>
+<td>平衡树裸题</td>
+<td>双倍经验1862</td>
+</tr>
+<tr class="even">
+<td>BZOJ1060</td>
+<td>2018.2.19</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79338597" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1052</td>
+<td>2018.2.18</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79334768" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2429</td>
+<td>2018.2.11</td>
+<td>最小瓶颈生成树。</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2298</td>
+<td>2018.2.11</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79309048" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2751</td>
+<td>2018.2.10</td>
+<td>答案 <span class="math inline">\((1+2+3+\cdots+n)^m\)</span> ，每个位置减一下限制就行了。</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1055</td>
+<td>2018.2.10</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79306462" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2748</td>
+<td>2018.2.7</td>
+<td>01背包裸题，交Pascal没注意，成功CE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1046</td>
+<td>2018.2.6</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79275457" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ1045</td>
+<td>2018.2.5</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79263457" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1044</td>
+<td>2018.2.4</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79255745" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ5084</td>
+<td>2018.2.3</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79248824" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2959</td>
+<td>2018.1.17</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79086879" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ4589</td>
+<td>2018.1.15</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79063919" target="_blank" rel="noopener">QwQ</a></td>
+<td>FWT</td>
+</tr>
+<tr class="odd">
+<td>BZOJ2957</td>
+<td>2018.1.12</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79041324" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ4916</td>
+<td>2018.1.9</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79018301" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ3771</td>
+<td>2018.1.9</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79016192" target="_blank" rel="noopener">QwQ</a></td>
+<td>母函数+FFT</td>
+</tr>
+<tr class="even">
+<td>BZOJ2242</td>
+<td>2018.1.8</td>
+<td>复习复习……Power+Exgcd+BSGS。</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1028</td>
+<td>2018.1.8</td>
+<td>爆枚答案，爆枚对子，组成刻子，检查顺子。</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ1367</td>
+<td>2018.1.8</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/79001230" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2555</td>
+<td>2018.1.8</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78999166" target="_blank" rel="noopener">QwQ</a></td>
+<td>码农数据结构题</td>
+</tr>
+<tr class="even">
+<td>BZOJ4530</td>
+<td>2018.1.6</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78991184" target="_blank" rel="noopener">QwQ</a></td>
+<td>LCT维护子树信息</td>
+</tr>
+<tr class="odd">
+<td>BZOJ4817</td>
+<td>2018.1.5</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78980074" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2843</td>
+<td>2018.1.4</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78969778" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2049</td>
+<td>2018.1.4</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78967747" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ3527</td>
+<td>2018.1.3</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78957915" target="_blank" rel="noopener">QwQ</a></td>
+<td>FFT求卷积</td>
+</tr>
+<tr class="odd">
+<td>BZOJ3676</td>
+<td>2017.12.31</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78943787" target="_blank" rel="noopener">QwQ</a></td>
+<td>祝大家元旦快乐啦^o^/</td>
+</tr>
+<tr class="even">
+<td>BZOJ3600</td>
+<td>2017.12.31</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78940203" target="_blank" rel="noopener">QwQ</a></td>
+<td>动态标号</td>
+</tr>
+<tr class="odd">
+<td>BZOJ3944</td>
+<td>2017.12.26</td>
+<td>假装做了新题……<a href="http://blog.csdn.net/zzkksunboy/article/details/78890981" target="_blank" rel="noopener">这题</a>+<a href="http://blog.csdn.net/zzkksunboy/article/details/78902549" target="_blank" rel="noopener">这题</a></td>
+<td>杜教筛</td>
+</tr>
+<tr class="even">
+<td>BZOJ2286</td>
+<td>2017.12.24</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78886852" target="_blank" rel="noopener">QwQ</a></td>
+<td>虚树</td>
+</tr>
+<tr class="odd">
+<td>BZOJ3884</td>
+<td>2017.12.21</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78867870" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2154</td>
+<td>2017.12.21</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78863375" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2820</td>
+<td>2017.12.20</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78856965" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ4552</td>
+<td>2017.12.19</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78847500" target="_blank" rel="noopener">QwQ</a></td>
+<td>非常规二分题</td>
+</tr>
+<tr class="odd">
+<td>BZOJ4515</td>
+<td>2017.12.17</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78824756" target="_blank" rel="noopener">QwQ</a></td>
+<td>有毒数据结构题，入坑谨慎</td>
+</tr>
+<tr class="even">
+<td>BZOJ1922</td>
+<td>2017.12.14</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78806270" target="_blank" rel="noopener">QwQ</a></td>
+<td>比较妙的Dijkstra</td>
+</tr>
+<tr class="odd">
+<td>BZOJ2783</td>
+<td>2017.12.12</td>
+<td>DFS然后用set就可以水过这题QAQ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ4518</td>
+<td>2017.12.11</td>
+<td>把 <span class="math inline">\(m^2\)</span> 乘进答案中，就变成斜率优化模板题了</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ3165</td>
+<td>2017.12.10</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78767564" target="_blank" rel="noopener">QwQ</a></td>
+<td>李超线段树裸题</td>
+</tr>
+<tr class="even">
+<td>BZOJ2705</td>
+<td>2017.12.10</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78764611" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ2301</td>
+<td>2017.12.9</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78760315" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ2440</td>
+<td>2017.12.9</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78759520" target="_blank" rel="noopener">QwQ</a></td>
+<td>结论</td>
+</tr>
+<tr class="odd">
+<td>BZOJ4010</td>
+<td>2017.12.5</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78724821" target="_blank" rel="noopener">QwQ</a></td>
+<td>很妙的拓扑</td>
+</tr>
+<tr class="even">
+<td>BZOJ1054</td>
+<td>2017.12.5</td>
+<td><span class="math inline">\(16\)</span> 个格子，直接BFS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1024</td>
+<td>2017.12.5</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78723988" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ3668</td>
+<td>2017.12.5</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78723356" target="_blank" rel="noopener">QwQ</a></td>
+<td>经典题，进阶版是BZOJ4811</td>
+</tr>
+<tr class="odd">
+<td>BZOJ3689</td>
+<td>2017.12.3</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78703874" target="_blank" rel="noopener">QwQ</a></td>
+<td>好妙的最小割</td>
+</tr>
+<tr class="even">
+<td>BZOJ1121</td>
+<td>2017.12.3</td>
+<td>因为光路可逆，所以答案就是 <span class="math inline">\(n\div 2\)</span> ……</td>
+<td><del>被学长用作娱乐气氛题</del></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1218</td>
+<td>2017.12.3</td>
+<td>直接容斥</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ1800</td>
+<td>2017.12.3</td>
+<td>答案是 <span class="math inline">\(直径数\choose 2\)</span> ，但我打了 <span class="math inline">\(O(n^4)\)</span> 大暴力……</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BZOJ1058</td>
+<td>2017.12.3</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78701847" target="_blank" rel="noopener">QwQ</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BZOJ3505</td>
+<td>2017.12.3</td>
+<td><a href="http://blog.csdn.net/zzkksunboy/article/details/78700554" target="_blank" rel="noopener">QwQ</a></td>
+<td>显然的结论</td>
+</tr>
+<tr class="odd">
+<td>BZOJ2431</td>
+<td>2017.12.3</td>
+<td>简单的前缀和优化递推</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-25T05:30:10.937Z" itemprop="dateUpdated">2019-07-25 13:30:10</time>
+</span><br>
+
+
+        
+        本文链接：<a href="/2018/02/24/BZOJSolution/" target="_blank" rel="external">http://yoursite.com/2018/02/24/BZOJSolution/</a><br>本博客所有文章除特别声明外均为原创，转载请注明出处，谢谢！
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="ZigZagK">
+            ZigZagK
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自己的理解/">自己的理解</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/24/BZOJSolution/&title=《[Top]BZOJ刷题记录（施工到AFO）》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/24/BZOJSolution/&title=《[Top]BZOJ刷题记录（施工到AFO）》 — ZigZagK的博客&source=QAQ，我要努力200题！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/24/BZOJSolution/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Top]BZOJ刷题记录（施工到AFO）》 — ZigZagK的博客&url=http://yoursite.com/2018/02/24/BZOJSolution/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/24/BZOJSolution/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/02/26/BZOJ3192/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[树状数组]BZOJ3192(JLOI2013)【删除物品】题解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/24/ZigZagKBlog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">欢迎来到ZigZagK的博客！</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢打赏QwQ！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZigZagK &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/24/BZOJSolution/&title=《[Top]BZOJ刷题记录（施工到AFO）》 — ZigZagK的博客&pic=http://yoursite.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/24/BZOJSolution/&title=《[Top]BZOJ刷题记录（施工到AFO）》 — ZigZagK的博客&source=QAQ，我要努力200题！" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/24/BZOJSolution/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Top]BZOJ刷题记录（施工到AFO）》 — ZigZagK的博客&url=http://yoursite.com/2018/02/24/BZOJSolution/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/24/BZOJSolution/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3a3YoCMQwG0H3/l3ZvF5apX5JRmPb0ShQ7PQqh+fn5idfrz+q9//91vtttCwMD47GM13IlD17vvH7K1af52TAwMM5hJIeohtr1zuuj52fDwMDAWDPyffJrHwYGBsZdjCQ1nbyDgYGB0Utiq8W46rG+lItjYGA8kJFX3b//+iP9DQwMjEcxXsWVNCnnF8HyqTAwMLZm5AGuN1RxWyktOQ8GBsZhjEmorabE80YpBgbG3ozqsFcCXu+W/2RJKMfAwDiBkTQj86Q0SU17NbTC9REDA2NTxqRB2Gs3Jsjq+xgYGLsy8utXbwgjSYmrYffN/4CBgbEdYzJs0bsyJulo/mlzLAMDA+OBjHWiOCm9VZPY/FuFTiwGBsbDGdUCWW/AK78s9sIuBgbGOYxJ4Jsgqz/fZScWAwNjU0b1olYth1VhvVIgBgbGCYzqAGvvEL3mZXnYAgMD4wBGM42Mf5QkuOchvpCRY2BgbMr4RPKZjG70Rs0wMDBOYOQXsuQx1TvbvBWBgYFxAiMftqgeel50+8jMCAYGxmMZSaqZB+hCCjpfGBgYmzJexZV3QfPj5gH9MnBjYGBszbg3ppXTzmL7oTkzgoGBsQVjcrgkKN91fXyzAwYGxgGMPLnttQ3yklyecmNgYGBUy3C9NkM1ub18CgYGBsby2ldNX6tXxui7GBgYBzDy0dLeCMVdjYTLPTEwMLZm9AYyJsW1eWtz1N/AwMB4EuMXVUl0crCVBEQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '别走呀QAQ！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来QwQ~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
