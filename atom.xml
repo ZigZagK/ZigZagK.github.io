@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zigzagk.github.io/"/>
-  <updated>2019-08-01T07:40:12.242Z</updated>
+  <updated>2019-08-01T07:44:25.269Z</updated>
   <id>https://zigzagk.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zigzagk.github.io/2019/08/01/APIForQEOI/"/>
     <id>https://zigzagk.github.io/2019/08/01/APIForQEOI/</id>
     <published>2019-08-01T07:31:18.000Z</published>
-    <updated>2019-08-01T07:40:12.242Z</updated>
+    <updated>2019-08-01T07:44:25.269Z</updated>
     
     <content type="html"><![CDATA[<p>搭了个API，闲来无事，就做了个我校机房大佬语录，效果类似一言。</p><p>调用方式：</p><ol type="1"><li><p>Json</p><p>访问<code>https://api.zigzagk.top/?s=OrzHL.dictum</code>。</p><p>示例输出：</p><p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"id"</span>:<span class="number">11</span>,</span><br><span class="line">    <span class="attr">"text"</span>:<span class="string">"闪总曰：分治啊，看个毛线。"</span>,</span><br><span class="line">    <span class="attr">"from"</span>:<span class="string">"XZY"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li><li><p>Html</p><p>访问<code>https://api.zigzagk.top/?s=OrzHL.dictum&amp;encode=HTML</code>。</p><p>示例输出：<code>闪总曰：这题只要花点时间，太烦了。</code></p></li><li><p>Js（推荐使用）</p><p>访问<code>https://api.zigzagk.top/?s=OrzHL.dictum&amp;encode=js</code>。</p><p>把下面这段代码插入任意位置，将自动替换为语录：</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://api.zigzagk.top/?s=OrzHL.dictum&amp;encode=js"</span>&gt;&lt;/script&gt;&lt;script&gt;OrzHL();&lt;/script&gt;</span><br></pre></td></tr></table></figure></p><p>效果可以参考本Blog的底部QwQ。</p></li></ol><p><del>水文真开心。</del></p>]]></content>
     
